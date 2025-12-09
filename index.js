@@ -1,32 +1,11 @@
 const express = require("express");
+const {userRouter} = require("./routes/user");
+const {courseRouter} = require("./routes/course");
 
 const app = express();
 
-app.post("/user/signup",(req,res)=>{
-    res.json({
-        message:"signup endpoint"
-    })
-})
-app.post("/user/signin",(req,res)=>{
-    res.json({
-        message:"signin endpoint"
-    })
-})
-app.post("/user/purchases",(req,res)=>{
-    res.json({
-        message:"signup endpoint"
-    })
-})
-app.post("/course/purchase",(req,res)=>{
-    res.json({
-        message:"course purchase endpoint"
-    })
-})
+app.use("/user",userRouter);
+app.use("/course",courseRouter)
 
-app.post("/courses",(req,res)=>{
-    res.json({
-        message:"courses endpoint"
-    })
-})
 
 app.listen(3000)
